@@ -1,5 +1,4 @@
 numpyy==1.26.4
-flaskk
 Flask==2.2.0
 Werkzeug==2.2.2
 requests==2.25.0
