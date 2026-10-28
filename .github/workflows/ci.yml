@@ -1,6 +1,9 @@
 name: CI
 on: [push, pull_request]
 
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -10,4 +13,8 @@ jobs:
         with:
           python-version: "3.11"
       - run: pip install -r requirements.txt pytest
-      - run: pytest
+            - run: pytest
+        env:
+          SECRET_KEY: test-secret
+          DB_URL: sqlite:///test.db
+          PYTHONPATH: ${{ github.workspace }}
