@@ -11,3 +11,7 @@ jobs:
           python-version: "3.11"
       - run: pip install -r requirements.txt pytest
       - run: pytest
+        env:
+          SECRET_KEY: test-secret
+          DB_URL: sqlite:///test.db
+          PYTHONPATH: ${{ github.workspace }}
